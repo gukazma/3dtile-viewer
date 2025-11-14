@@ -5,6 +5,9 @@ declare global {
     electron: ElectronAPI
     api: ApiExports
   }
+  interface HTMLElement {
+    creatingPromise: Promise<HTMLElement>
+  }
 }
 // 可选：定义你自己的 api 类型
 export interface ApiExports {

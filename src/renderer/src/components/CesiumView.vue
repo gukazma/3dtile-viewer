@@ -1,20 +1,24 @@
 <template>
-  <vc-viewer>
+  <vc-viewer ref="viewerRef" @ready="onViewerReady">
     <vc-navigation ref="navigation" :offset="[35, 35]"></vc-navigation>
-    <vc-layer-imagery :sort-order="20">
-      <vc-imagery-provider-tianditu
-        map-style="cva_c"
-        token="436ce7e50d27eede2f2929307e6b33c0"
-      ></vc-imagery-provider-tianditu>
-    </vc-layer-imagery>
-    <vc-layer-imagery :sort-order="10">
-      <vc-imagery-provider-tianditu
-        ref="provider"
-        map-style="img_c"
-        token="436ce7e50d27eede2f2929307e6b33c0"
-      ></vc-imagery-provider-tianditu>
-    </vc-layer-imagery>
   </vc-viewer>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref, onMounted } from 'vue'
+import type { VcReadyObject } from 'vue-cesium/es/utils/types'
+
+const viewerRef = ref<HTMLElement | null>(null)
+
+onMounted(() => {
+  viewerRef.value?.creatingPromise.then((readyObj: VcReadyObject) => {
+    console.log(readyObj.Cesium) // Cesium namespace object
+    console.log(readyObj.viewer) // instanceof Cesium.Viewer
+  })
+})
+
+const onViewerReady = (readyObj: VcReadyObject): void => {
+  console.log(readyObj.Cesium) // Cesium namespace object
+  console.log(readyObj.viewer) // instanceof Cesium.Viewer
+}
+</script>
