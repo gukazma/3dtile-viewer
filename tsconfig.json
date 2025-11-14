@@ -1,4 +1,16 @@
 {
   "files": [],
-  "references": [{ "path": "./tsconfig.node.json" }, { "path": "./tsconfig.web.json" }]
+  "references": [{ "path": "./tsconfig.node.json" }, { "path": "./tsconfig.web.json" }],
+   "compilerOptions": {
+    // ...
+    "types": [
+      // ...
+      "vue-cesium/global",
+      "vue-cesium/Cesium"
+    ],
+    "include": [
+    "node_modules/vue-cesium/Cesium.d.ts", 
+    "node_modules/vue-cesium/global.d.ts"
+    ]
+  }
 }
