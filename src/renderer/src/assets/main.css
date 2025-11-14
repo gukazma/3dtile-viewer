@@ -1,0 +1,16 @@
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* 可选：防止滚动条出现 */
+}
+.full {
+  height: 100vh;
+  width: 100vw;
+}
+
+.full-content {
+  height: 100%;
+}
