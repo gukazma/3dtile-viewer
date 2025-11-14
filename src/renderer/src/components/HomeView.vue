@@ -19,7 +19,7 @@
           />
         </n-layout-sider>
         <n-layout class="full-content">
-          <CesiumView style="width: 100%; height: 100%" />
+          <CesiumView ref="cesiumViewRef" style="width: 100%; height: 100%" />
         </n-layout>
       </n-layout>
     </n-space>
@@ -30,8 +30,14 @@ import type { MenuOption } from 'naive-ui'
 import type { Component } from 'vue'
 import { Create, HelpCircleOutline } from '@vicons/ionicons5'
 import { NIcon, useMessage } from 'naive-ui'
-import { h } from 'vue'
+import { h, ref } from 'vue'
 import CesiumView from './CesiumView.vue'
+
+// 类型声明：获取子组件实例类型
+type CesiumViewInstance = InstanceType<typeof CesiumView>
+
+const cesiumViewRef = ref<CesiumViewInstance | null>(null)
+
 function renderIcon(icon: Component) {
   return () => h(NIcon, null, { default: () => h(icon) })
 }
@@ -83,5 +89,6 @@ function loadModelIntoViewer(filePath: string): void {
   // 这里需要根据 vc-viewer（Vue Cesium）的 API 加载 glTF 模型
   // 示例见下方说明
   console.log('Loading model into viewer:', filePath)
+  cesiumViewRef.value?.loadModel(filePath)
 }
 </script>
