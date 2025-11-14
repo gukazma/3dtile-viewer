@@ -60,7 +60,7 @@ function handleMenuSelect(key: string): void {
   if (key === 'open-model') {
     openModelFile()
   } else if (key === 'about') {
-    message.info('Cesium 3D Viewer v1.0')
+    message.info('Cesium Viewer v1.0')
   }
 }
 

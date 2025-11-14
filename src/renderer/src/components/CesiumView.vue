@@ -3,8 +3,8 @@
     <vc-layer-imagery>
       <vc-imagery-provider-arcgis></vc-imagery-provider-arcgis>
     </vc-layer-imagery>
-      <vc-navigation></vc-navigation>
-      <vc-measurements ></vc-measurements>
+    <vc-navigation></vc-navigation>
+    <vc-measurements></vc-measurements>
   </vc-viewer>
 </template>
 
